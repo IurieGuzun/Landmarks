@@ -9,13 +9,24 @@
 import SwiftUI
 
 struct LandmarkRow: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    
+        var landmark: Landmark
+    
+        var body: some View {
+            HStack {
+                landmark.image
+                    .resizable()
+                    .frame(width: 100, height: 100)
+                Text(landmark.name)
+            }
     }
 }
 
 struct LandmarkRow_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkRow()
+        Group {
+            LandmarkRow(landmark: landmarkData[1])
+                .previewLayout(.fixed(width: 300, height: 110))
+        }
     }
 }
